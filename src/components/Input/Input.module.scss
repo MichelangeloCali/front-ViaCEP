@@ -1,0 +1,46 @@
+@import '../../styles/_variables.scss';
+
+.inputContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  height: 56px;
+  font-family: $font-family-base;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 175%;
+  color: $color-primary-contrast;
+  border: 1px solid;
+  border-radius: 8px;
+  border-color: $color-primary-contrast;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  &:focus {
+    border: 1px solid $color-primary-main;
+    outline: none;
+  }
+
+  &:disabled {
+    border-color: $color-disabled;
+    color: $color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.input.error {
+  border-color: $color-error-main;
+  color: $color-error-dark;
+}
+
+.text_error {
+  position: absolute;
+  bottom: -20px;
+  color: $color-error-dark;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 150%;
+  margin-top: 2px;
+}

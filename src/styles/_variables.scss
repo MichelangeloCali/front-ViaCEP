@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+
+$font-family-base: 'Plus Jakarta Sans', sans-serif;
+
+// Base Colors:
+$color-primary-light: #f3c96f;
+$color-primary-main: #f1bc4b;
+$color-primary-dark: #a88334;
+$color-primary-contrast: #211e1e;
+$color-primary-background: #fdf7ec;
+
+$color-secondary-light: #f38f6f;
+$color-secondary-main: #f1734b;
+$color-secondary-dark: #a85034;
+$color-secondary-contrast: #211e1e;
+$color-secondary-background: #fde9e3;
+
+// Feedback Colors:
+$color-disabled: #aeaeae;
+$color-base-dark: #333333;
+$color-base-dark-secondary: #211e1e;
+$color-base-light: #ffffff;
+$color-base-light-secondary: #f5f5f5;
+
+$color-error-light: #ef5350;
+$color-error-main: #d32f2f;
+$color-error-dark: #c62828;
+$color-error-background: #ffddee;
+
+$color-success-light: #4caf50;
+$color-success-main: #2e7d32;
+$color-success-dark: #1b5e20;
+$color-success-background: #edf7ed;
+
+$color-warning-light: #ff9800;
+$color-warning-main: #ed6c02;
+$color-warning-dark: #e65100;
+$color-warning-background: #fff4e5;
+
+$color-info-light: #03a9f4;
+$color-info-main: #0288d1;
+$color-info-dark: #01579b;
+$color-info-background: #e5f6fd;
+
+//Breakpoints Variables:
+$mobile: 360px;
+$tablet: 1024px;
+$desktop: 1280px;
+$desktop-g: 1440px;
+
+@mixin media-size-up($size) {
+  // Mobile
+  @if $size == mobile {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  }
+  // Tablet
+  @if $size == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+  // Desktop
+  @else if $size == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+  // Desktop G
+  @else if $size == desktop-g {
+    @media (min-width: $desktop-g) {
+      @content;
+    }
+  }
+}

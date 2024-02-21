@@ -1,0 +1,23 @@
+@import '../../styles/_variables.scss';
+
+.address_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1rem;
+  color: $color-primary-contrast;
+  background-color: $color-base-light;
+  border: 1px solid;
+  border-radius: 8px;
+  border-color: $color-primary-contrast;
+
+  h3 {
+    margin: 0;
+    padding: 8px;
+    max-width: 30ch;
+
+    span {
+      font-weight: 400;
+    }
+  }
+}

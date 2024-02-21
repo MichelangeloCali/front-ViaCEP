@@ -1,11 +1,8 @@
-import './App.css'
+import { FormSearchScreen } from '@/screen'
+import './styles/styles.scss'
 
 function App() {
-  return (
-    <>
-      <div>Hey, its working!</div>
-    </>
-  )
+  return <FormSearchScreen />
 }
 
 export default App

@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.button {
+  border-radius: 8px;
+  font-weight: bold;
+  height: 56px;
+  font-size: 16px;
+  line-height: 150%;
+  padding: 12px 24px;
+
+  color: $color-base-light;
+  background-color: $color-base-dark-secondary;
+  border-radius: none;
+
+  &:focus {
+    border-width: 2px;
+    border-color: $color-primary-main;
+    background-color: $color-base-dark;
+  }
+
+  &:hover {
+    background-color: $color-base-dark;
+  }
+
+  &:active {
+    color: $color-base-light-secondary;
+  }
+
+  &:disabled {
+    color: $color-base-light-secondary;
+    background-color: $color-disabled;
+    cursor: not-allowed;
+  }
+}
