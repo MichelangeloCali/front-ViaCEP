@@ -1,7 +1,5 @@
 import { ButtonHTMLAttributes } from 'react'
 
-// import { UserIcon } from '../Svgs'
-
 import styles from './Button.module.scss'
 
 type ButtonPropsType = {

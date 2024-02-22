@@ -1,9 +1,10 @@
 type AddressType = {
-  id: string
-  zipcode: string
+  postalCode: string
   street: string
   neighborhood: string
   city: string
+  statusCode?: number
+  message?: string
 }
 
 export default AddressType

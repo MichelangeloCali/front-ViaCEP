@@ -16,5 +16,8 @@
   position: relative;
 }
 
-.result_content {
+.text_error {
+  color: $color-error-dark;
+  margin-top: 20vh;
+  padding: 0 10px;
 }

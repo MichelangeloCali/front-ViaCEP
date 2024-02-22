@@ -1,31 +1,28 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
+import { useAddressByPostalCode } from '@/hooks'
 import { AddressCard, Button, Input } from '@/components'
-import { creatSearchCepData, searchCepSchema } from '@/utils'
+import { FormSearchInputs, searchCepSchema } from '@/utils'
 
 import styles from './FormSearchScreen.module.scss'
-
-const address = {
-  zipcode: '83005070',
-  street: 'Rua Margarida de Araujo Franco',
-  neighborhood: 'Carioca',
-  city: 'São José dos Pinhais',
-}
 
 export const FormSearchScreen = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<creatSearchCepData>({
+  } = useForm<FormSearchInputs>({
     resolver: zodResolver(searchCepSchema),
   })
 
-  const onSubmit = (data: creatSearchCepData) => {
-    // data to send to data base or trigger mails API
-    console.log('Form value = ', data)
+  const { mutate, data, isPending } = useAddressByPostalCode()
+
+  const onSubmit: SubmitHandler<FormSearchInputs> = ({ postalCode }) => {
+    mutate(postalCode)
   }
 
   return (
@@ -34,18 +31,24 @@ export const FormSearchScreen = () => {
 
       <form className={styles.form_content} onSubmit={handleSubmit(onSubmit)}>
         <Input
-          error={!!errors.cep}
-          errorMessage={errors.cep?.message ? errors.cep.message : ' '}
+          error={!!errors.postalCode}
+          errorMessage={
+            errors.postalCode?.message ? errors.postalCode.message : ' '
+          }
           htmlFor="cep"
-          label="00000-000"
-          {...register('cep')}
+          label="00000000"
+          {...register('postalCode')}
         />
 
         <Button text="Buscar" type="submit" />
       </form>
 
-      <AddressCard address={address} />
-      {/* <AddressCard /> */}
+      {!!data && !data?.statusCode && <AddressCard address={data} />}
+      {isPending && <Skeleton height={433} width={402} />}
+
+      {data?.statusCode && (
+        <h2 className={styles.text_error}>{data.message}</h2>
+      )}
     </main>
   )
 }

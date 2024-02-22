@@ -1,3 +1,4 @@
-import { useLocationMapQuery } from './useLocationMapQuery'
+import { useLocationMap } from './useLocationMap'
+import { useAddressByPostalCode } from './useAddressByPostalCode'
 
-export { useLocationMapQuery }
+export { useLocationMap, useAddressByPostalCode }

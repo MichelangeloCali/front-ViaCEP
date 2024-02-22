@@ -1,5 +1,5 @@
-import { creatSearchCepData, searchCepSchema } from './search-cep-schema'
+import { FormSearchInputs, searchCepSchema } from './search-cep-schema'
 
-export type { creatSearchCepData }
+export type { FormSearchInputs }
 
 export { searchCepSchema }
