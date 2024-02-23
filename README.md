@@ -1,30 +1,62 @@
-# React + TypeScript + Vite
+# Via Cep [FRONTEND]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esse é o repositório frontend do desafio proposto para dar usabilidade à API criada no desafio [backend](https://github.com/MichelangeloCali/back-ViaCEP) 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## O projeto foi desenvolvido com as seguintes stacks
 
-## Expanding the ESLint configuration
+- React JS (utilizou o TS-SWC como compilador) 
+- Typescript (para tipagem em tempo de desenvolvimento, visando boas práticas de código em legibilidade e manuntenibilidade).
+- SASS (.scss para estilização de em module)
+- React Hook Form 
+- Zod (para validação de formulário e tipagem integrada com Typescript)
+- Husky (para utilização de hooks, automatizando o linter fix e leitura de testes unitários).
+- Eslint.
+- Prettier.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Design de Software (arquitetura frontend)
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+/public
+/src
+  └── /components
+        └── /AddressCard
+        └── /Button
+        └── /Input
+  └── /@types
+  └── /config
+  └── /hooks
+  └── /screen
+  └── /styles
+  └── /utils
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Para rodar localmente o repositório: 
+
+- certifique-se que você tem instalado Node v.18.17 em sua máquina.
+- clone o repositório em sua máquina `https://github.com/MichelangeloCali/front-ViaCEP.git`
+- entre na pasta do projeto e rode `npm install`
+- rode o comando `npm run dev`
+
+
+## Boas práticas:
+
+- O código foi a todo momento desenvolvido para que pudesse ser o máximo componentizado, tornando reutilizável e menos repetitido possível.
+- O código Javascript está tipado, evitando erros de tipos em tempo de desenvolvimento, facilitando o debug.
+- Foi integrado um sistema de validação de inputs para que os dados possam ser tratados antes de salvos ou enviados no backend
+- Foi configurando triggers com Husky, através de scripts pre-commit, onde é feito o fix do código, e pre-push, onde é rodado os testes unitários, evitando que todo e qualquer componente criado ou alterado suba para produção quebrado ou com algum bug. 
+
+## Observações:
+
+- Antes de rodar este projeto, recomenda-se rodar o backend na porta 3000, conforme as instruções do repositório.
+- Certifique-se que o backend está rodando, e crie o `.env` na raiz do projeto frontend com a seguinte variável de ambiente:
+```
+VITE_API_BASE_URL="http://localhost:3000/address"
+```
+
+
+### Contato do desenvolvedor:
+
+- [LinkedIn](https://www.linkedin.com/in/michelangelocali/)
+- Email: michelangelocali@hotmail.com
+
